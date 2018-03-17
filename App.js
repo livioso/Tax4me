@@ -30,13 +30,36 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      amount: '0'
+      taxRate: 0.05,
+      transactions: [
+        {date: 'Today', data: []},
+        {date: 'Friday, 16. March 2018', data: [
+          {to: 'Migros', 'amount': 19.95},
+          {to: 'Coop', 'amount': 29.45},
+          {to: 'Manora', 'amount': 20.00},
+          {to: 'Coop', 'amount': 15.00},
+          {to: 'Migros', 'amount': 98.00}
+        ]},
+        {date: 'Wednesday, 14. March 2018', data: [
+          {to: 'Migros', 'amount': 19.95},
+          {to: 'Coop', 'amount': 29.45},
+          {to: 'Manora', 'amount': 20.00},
+          {to: 'Coop', 'amount': 15.00},
+          {to: 'Migros', 'amount': 98.00}
+        ]}
+      ]
     };
   }
 
   render() {
-    return <RootStack screenProps={{
-      triggerNewPayment: () => {}
+    return <RootStack
+      screenProps={{
+        ...this.state,
+        addPayment: ({amount, to}) => {
+          const newState = {...this.state}
+          newState.transactions[0].data.unshift({to, amount})
+          this.setState(newState)
+        }
     }} />;
   }
 }

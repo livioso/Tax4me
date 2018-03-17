@@ -33,6 +33,7 @@ const RenderSummary = ({transactions}) => {
     .map(xs => xs.data)
     .reduce((ll, mm) => ll.concat(mm), [])
     .reduce((prev, elem) => prev + elem.amount, 0)
+    .toFixed(2)
 
   return (
     <View>
@@ -70,36 +71,12 @@ export default class TransactionOverview extends React.Component {
     },
   });
 
-  constructor(props) {
-    super(props);
-    this.state = {
-    transactions: [
-      {date: 'Today', data: [
-        {to: 'Migros', 'amount': 19.95}]
-      },
-      {date: 'Friday, 16. March 2018', data: [
-        {to: 'Migros', 'amount': 19.95},
-        {to: 'Coop', 'amount': 29.45},
-        {to: 'Manora', 'amount': 20.00},
-        {to: 'Coop', 'amount': 15.00},
-        {to: 'Migros', 'amount': 98.00}
-      ]},
-      {date: 'Wednesday, 14. March 2018', data: [
-        {to: 'Migros', 'amount': 19.95},
-        {to: 'Coop', 'amount': 29.45},
-        {to: 'Manora', 'amount': 20.00},
-        {to: 'Coop', 'amount': 15.00},
-        {to: 'Migros', 'amount': 98.00}
-      ]}
-    ]};
-  }
-
   render() {
     return (
       <View style={styles.container}>
-        <RenderSummary transactions={this.state.transactions}/>
+        <RenderSummary transactions={this.props.screenProps.transactions}/>
         <SectionList
-          sections={this.state.transactions}
+          sections={this.props.screenProps.transactions}
           renderItem={({item}) => renderEntry(item)}
           renderSectionHeader={({section}) => renderSectionHeader(section)}
           keyExtractor={(item, index) => index}

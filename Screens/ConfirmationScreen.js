@@ -21,15 +21,6 @@ export default class ConfirmationScreen extends React.Component {
     },
   });
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      transactionValue: 50,
-      taxRate: 0.05,
-    };
-  }
-
   render() {
   return (
     <View style={{ flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
@@ -50,10 +41,10 @@ export default class ConfirmationScreen extends React.Component {
         </View>
         <View style={{ flex: 1, alignItems: 'center'}}>
           <View>
-            <RenderConfirmationRow title="Merchant Gets" value={this.state.transactionValue}/>
-            <RenderConfirmationRow title="Your Tax" value={this.state.transactionValue * this.state.taxRate}/>
+            <RenderConfirmationRow title="Merchant Gets" value={getLatestTransactionValue(this.props.screenProps.transactions)}/>
+            <RenderConfirmationRow title="Your Tax" value={getLatestTransactionValue(this.props.screenProps.transactions) * this.props.screenProps.taxRate}/>
             <View style={{height: 20}} />
-            <RenderConfirmationRow title="Total Debited" value={this.state.transactionValue * (1 + this.state.taxRate)}/>
+            <RenderConfirmationRow title="Total Debited" value={getLatestTransactionValue(this.props.screenProps.transactions) * (1 + this.props.screenProps.taxRate)}/>
           </View>
         </View>
         <View style={{height: 50, width: 400}}>
@@ -67,4 +58,9 @@ export default class ConfirmationScreen extends React.Component {
       </View>
   );
   }
+  }
+
+
+  const getLatestTransactionValue = (transactions) => {
+    return parseFloat(transactions[0].data[0].amount)
   }
