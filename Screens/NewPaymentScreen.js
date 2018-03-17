@@ -69,7 +69,7 @@ export default class NewPaymentScreen extends React.Component {
                this.props.screenProps.triggerNewPayment(this.state.amount)
                this.props.navigation.navigate('ConfirmationScreen')
               }}
-              title="Send it now"
+              title="Pay it now"
               color="#DE6517"
             />
           </View>

@@ -116,7 +116,7 @@ export default class TransactionOverview extends React.Component {
           </View>
           <View style={{height: 50}}>
              <Button onPress={() => {
-                this.props.navigation.dispatch(resetAction)
+                this.props.navigation.navigate('WithdrawelScreen')
               }}
               title="My Taxes"
               color="#DE6517"

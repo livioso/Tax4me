@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'rea
 import NewPaymentScreen from './Screens/NewPaymentScreen';
 import TransactionOverviewScreen from './Screens/TransactionOverviewScreen';
 import ConfirmationScreen from './Screens/ConfirmationScreen';
+import WithdrawelScreen from './Screens/WithdrawelScreen';
 import { StackNavigator } from 'react-navigation';
 
 const RootStack = StackNavigator(
@@ -15,6 +16,9 @@ const RootStack = StackNavigator(
     },
     ConfirmationScreen: {
       screen: ConfirmationScreen,
+    },
+    WithdrawelScreen: {
+      screen: WithdrawelScreen,
     },
   },
   {
