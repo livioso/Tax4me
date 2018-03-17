@@ -104,13 +104,24 @@ export default class TransactionOverview extends React.Component {
           renderSectionHeader={({section}) => renderSectionHeader(section)}
           keyExtractor={(item, index) => index}
         />
-        <View style={{height: 50, width: 400}}>
-           <Button onPress={() => {
-              this.props.navigation.dispatch(resetAction)
-            }}
-            title="New Payment"
-            color="#DE6517"
-          />
+
+        <View style={{flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', marginLeft: 10, marginRight: 10}}>
+          <View style={{height: 50}}>
+             <Button onPress={() => {
+                this.props.navigation.dispatch(resetAction)
+              }}
+              title="New Payment"
+              color="#DE6517"
+            />
+          </View>
+          <View style={{height: 50}}>
+             <Button onPress={() => {
+                this.props.navigation.dispatch(resetAction)
+              }}
+              title="My Taxes"
+              color="#DE6517"
+            />
+          </View>
         </View>
       </View>
     )
