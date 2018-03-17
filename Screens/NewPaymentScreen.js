@@ -15,7 +15,7 @@ export default class NewPaymentScreen extends React.Component {
     super(props);
 
     this.state = {
-      amount: '0'
+      amount: '25'
     };
   }
 
@@ -42,7 +42,7 @@ export default class NewPaymentScreen extends React.Component {
               />
               <Text style={{fontSize: 30, alignSelf: 'flex-end', marginLeft: 10}}>CHF</Text>
             </View>
-            <Text>Your tax {this.state.amount * 0.01} CHF</Text>
+            <Text>Your tax {(this.state.amount * this.props.screenProps.taxRate).toFixed(2)} CHF</Text>
           </View>
 
           <View style={{alignItems: 'center'}}>
@@ -66,10 +66,10 @@ export default class NewPaymentScreen extends React.Component {
 
           <View style={{height: 50, width: 400}}>
              <Button onPress={() => {
-               this.props.screenProps.triggerNewPayment(this.state.amount)
+               this.props.screenProps.addPayment({amount: parseFloat(this.state.amount), to: 'Migros'})
                this.props.navigation.navigate('ConfirmationScreen')
               }}
-              title="Send it now"
+              title="Pay it now"
               color="#DE6517"
             />
           </View>
