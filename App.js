@@ -36,11 +36,39 @@ export default class App extends React.Component {
         {date: 'Friday, 16. March 2018', data: [
           {to: 'Migros', 'amount': 19.95},
           {to: 'Coop', 'amount': 29.45},
-          {to: 'Manora', 'amount': 20.00},
+          {to: 'Manor', 'amount': 20.00},
           {to: 'Coop', 'amount': 15.00},
           {to: 'Migros', 'amount': 98.00}
         ]},
         {date: 'Wednesday, 14. March 2018', data: [
+          {to: 'Migros', 'amount': 19.95},
+          {to: 'Coop', 'amount': 29.45},
+          {to: 'Manora', 'amount': 20.00},
+          {to: 'Coop', 'amount': 15.00},
+          {to: 'Migros', 'amount': 98.00}
+        ]},
+        {date: 'Wednesday, 13. March 2018', data: [
+          {to: 'Coop', 'amount': 15.00},
+          {to: 'Manora', 'amount': 20.00},
+          {to: 'Migros', 'amount': 19.95},
+          {to: 'Coop', 'amount': 29.45},
+          {to: 'Migros', 'amount': 98.00}
+        ]},
+        {date: 'Wednesday, 12. March 2018', data: [
+          {to: 'Migros', 'amount': 19.95},
+          {to: 'Coop', 'amount': 29.45},
+          {to: 'Manora', 'amount': 20.00},
+          {to: 'Coop', 'amount': 15.00},
+          {to: 'Migros', 'amount': 98.00}
+        ]},
+        {date: 'Wednesday, 9. March 2018', data: [
+          {to: 'Coop', 'amount': 15.00},
+          {to: 'Manora', 'amount': 20.00},
+          {to: 'Migros', 'amount': 19.95},
+          {to: 'Coop', 'amount': 29.45},
+          {to: 'Migros', 'amount': 98.00}
+        ]},
+        {date: 'Wednesday, 7. March 2018', data: [
           {to: 'Migros', 'amount': 19.95},
           {to: 'Coop', 'amount': 29.45},
           {to: 'Manora', 'amount': 20.00},

@@ -10,10 +10,10 @@ const resetAction = NavigationActions.reset({
 const renderEntry = (entry) => {
   return (
     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-      <Text style={{fontSize: 30, fontWeight: '200', marginLeft: 10}}>{entry.to}</Text>
+      <Text style={{fontSize: 20, fontWeight: '200', marginLeft: 10, marginTop: 5}}>{entry.to}</Text>
       <View style={{marginRight: 10, marginTop: 5, marginBottom: 5}}>
-        <Text style={{fontSize: 30}}>{(entry.amount).toFixed(2)} CHF</Text>
-        <Text style={{color: '#DE6517'}}>Tax {(entry.amount * 0.05).toFixed(2)} CHF</Text>
+        <Text style={{fontSize: 20}}>{(entry.amount).toFixed(2)} CHF</Text>
+        <Text style={{color: '#01AB52'}}>Tax {(entry.amount * 0.05).toFixed(2)} CHF</Text>
       </View>
     </View>
   );
@@ -27,12 +27,12 @@ const renderSectionHeader = (section) => {
   )
 }
 
-const RenderSummary = ({transactions}) => {
+const RenderSummary = ({transactions, taxRate}) => {
 
   const total = transactions
     .map(xs => xs.data)
     .reduce((ll, mm) => ll.concat(mm), [])
-    .reduce((prev, elem) => prev + elem.amount, 0)
+    .reduce((prev, elem) => prev + elem.amount * taxRate, 0)
     .toFixed(2)
 
   return (
@@ -44,16 +44,15 @@ const RenderSummary = ({transactions}) => {
              borderColor:'rgba(0,0,0,0.2)',
              alignItems:'center',
              justifyContent:'center',
-             width:120,
-             height:120,
-             backgroundColor:'#DE6517',
-             borderRadius:120,
+             width:150,
+             height:150,
+             backgroundColor:'#01AB52',
+             borderRadius:150,
              }}>
-             <Text style={{color: 'white', fontSize: 30, fontWeight: '200'}}>{total}</Text>
-             <Text style={{color: 'white', fontSize: 20, fontWeight: '200'}}>CHF</Text>
+             <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>{total} CHF</Text>
+             <Text style={{color: 'white', fontSize: 20, fontWeight: 'normal'}}>Total</Text>
            </TouchableOpacity>
-
-         <Text style={{margin: 10}}>Total Tax</Text>
+         <Text style={{margin: 10}}>This Month</Text>
       </View>
     </View>
   )
@@ -74,7 +73,7 @@ export default class TransactionOverview extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <RenderSummary transactions={this.props.screenProps.transactions}/>
+        <RenderSummary transactions={this.props.screenProps.transactions} taxRate={this.props.screenProps.taxRate}/>
         <SectionList
           sections={this.props.screenProps.transactions}
           renderItem={({item}) => renderEntry(item)}
@@ -95,7 +94,7 @@ export default class TransactionOverview extends React.Component {
              <Button onPress={() => {
                 this.props.navigation.navigate('WithdrawelScreen')
               }}
-              title="My Taxes"
+              title="Investments"
               color="#DE6517"
             />
           </View>

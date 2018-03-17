@@ -52,16 +52,14 @@ export default class NewPaymentScreen extends React.Component {
                  borderColor:'rgba(0,0,0,0.2)',
                  alignItems:'center',
                  justifyContent:'center',
-                 width:120,
-                 height:120,
+                 width:150,
+                 height:150,
                  backgroundColor:'#DE6517',
-                 borderRadius:120,
+                 borderRadius:150,
                  }}>
-                 <Text style={{color: 'white', fontSize: 50}}>M</Text>
+                 <Text style={{color: 'white', fontSize: 20, fontWeight:'bold'}}>Migros</Text>
                </TouchableOpacity>
-
-             <Text style={{margin: 10}}>Migros</Text>
-             <Text>-</Text>
+             <Text style={{margin: 10}}>Merchant</Text>
           </View>
 
           <View style={{height: 50, width: 400}}>
@@ -69,7 +67,7 @@ export default class NewPaymentScreen extends React.Component {
                this.props.screenProps.addPayment({amount: parseFloat(this.state.amount), to: 'Migros'})
                this.props.navigation.navigate('ConfirmationScreen')
               }}
-              title="Pay it now"
+              title="Pay It Now"
               color="#DE6517"
             />
           </View>
