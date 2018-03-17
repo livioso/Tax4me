@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
 import NewPaymentScreen from './Screens/NewPaymentScreen';
-import TransactionOverview from './Screens/TransactionOverview';
+import TransactionOverviewScreen from './Screens/TransactionOverviewScreen';
+import ConfirmationScreen from './Screens/ConfirmationScreen';
 import { StackNavigator } from 'react-navigation';
 
 const RootStack = StackNavigator(
@@ -9,8 +10,11 @@ const RootStack = StackNavigator(
     NewPaymentScreen: {
       screen: NewPaymentScreen,
     },
-    TransactionOverview: {
-      screen: TransactionOverview,
+    TransactionOverviewScreen: {
+      screen: TransactionOverviewScreen,
+    },
+    ConfirmationScreen: {
+      screen: ConfirmationScreen,
     },
   },
   {
@@ -28,7 +32,7 @@ export default class App extends React.Component {
 
   render() {
     return <RootStack screenProps={{
-      triggerNewPayment: () => {alert('yo')}
+      triggerNewPayment: () => {}
     }} />;
   }
 }

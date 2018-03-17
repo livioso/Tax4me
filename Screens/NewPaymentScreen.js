@@ -3,9 +3,13 @@ import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'rea
 
 export default class NewPaymentScreen extends React.Component {
 
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: 'New Payment',
-  };
+    headerTitleStyle : {textAlign: 'center',alignSelf:'center', color: 'white'},
+    headerStyle: {
+      backgroundColor: '#DE6517',
+    },
+  });
 
   constructor(props) {
     super(props);
@@ -61,8 +65,10 @@ export default class NewPaymentScreen extends React.Component {
           </View>
 
           <View style={{height: 50, width: 400}}>
-             <Button
-              onPress={() => {this.props.screenProps.triggerNewPayment(this.state.amount)}}
+             <Button onPress={() => {
+               this.props.screenProps.triggerNewPayment(this.state.amount)
+               this.props.navigation.navigate('ConfirmationScreen')
+              }}
               title="Send it now"
               color="#DE6517"
             />
