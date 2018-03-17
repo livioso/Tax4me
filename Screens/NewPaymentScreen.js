@@ -42,7 +42,7 @@ export default class NewPaymentScreen extends React.Component {
               />
               <Text style={{fontSize: 30, alignSelf: 'flex-end', marginLeft: 10}}>CHF</Text>
             </View>
-            <Text>You save {this.state.amount * 0.01} CHF</Text>
+            <Text>Your tax {this.state.amount * 0.01} CHF</Text>
           </View>
 
           <View style={{alignItems: 'center'}}>
