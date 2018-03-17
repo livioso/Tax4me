@@ -77,11 +77,13 @@ export default class TransactionOverview extends React.Component {
             <Button onPress={() => {
               ActionSheetIOS.showActionSheetWithOptions({
                 options: [
-                  "Withdraw at ATM",
                   "Send to Bankaccount",
+                  "Invest in BTC",
+                  "Invest in ETH",
+                  "Withdraw at ATM",
                 ],
                 cancelButtonIndex: 0,
-                destructiveButtonIndex: 2,
+                destructiveButtonIndex: 3,
               },
               (buttonIndex) => {
                 switch (buttonIndex) {
@@ -98,7 +100,7 @@ export default class TransactionOverview extends React.Component {
                 }}
 
                 color="#DE6517"
-                title="New Payment"
+                title="My Cash"
               />
           </View>
         </View>
