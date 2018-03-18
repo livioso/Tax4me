@@ -37,7 +37,7 @@ export default class NewPaymentScreen extends React.Component {
                 keyboardType="numeric"
                 style={{height: 50, width: 100, borderWidth: 0, fontSize: 50, textAlign: 'right'}}
                 autoGrow={true}
-                onChangeText={(amount) => this.setState({amount})}
+                onChangeText={(amount) => {this.setState({amount: amount.replace('.', '')})}}
                 onFocus={() => this.setState({amount: ''})}
                 value={this.state.amount}
               />
