@@ -16,7 +16,7 @@ export default class NewPaymentScreen extends React.Component {
     super(props);
 
     this.state = {
-      amount: '25'
+      amount: '50'
     };
   }
 
