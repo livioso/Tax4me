@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'rea
 import NewPaymentScreen from './Screens/NewPaymentScreen';
 import TransactionOverviewScreen from './Screens/TransactionOverviewScreen';
 import ConfirmationScreen from './Screens/ConfirmationScreen';
+import IdleScreen from './Screens/IdleScreen';
 import WithdrawelScreen from './Screens/WithdrawelScreen';
 import { StackNavigator } from 'react-navigation';
 
@@ -20,9 +21,12 @@ const RootStack = StackNavigator(
     WithdrawelScreen: {
       screen: WithdrawelScreen,
     },
+    IdleScreen: {
+      screen: IdleScreen,
+    },
   },
   {
-    initialRouteName: 'NewPaymentScreen',
+    initialRouteName: 'IdleScreen',
   }
 );
 

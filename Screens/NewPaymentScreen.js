@@ -6,6 +6,7 @@ export default class NewPaymentScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'New Payment',
     headerTitleStyle : {textAlign: 'center',alignSelf:'center', color: 'white'},
+    headerTintColor: 'white',
     headerStyle: {
       backgroundColor: '#DE6517',
     },
